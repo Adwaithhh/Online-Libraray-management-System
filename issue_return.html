@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0"><i class="fas fa-exchange-alt me-2"></i>Issue or Return Books</h4>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-book me-2"></i>Book ID</label>
+                <input type="text" name="book_id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-user me-2"></i>Member ID (only for issue)</label>
+                <input type="text" name="member_id" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-tasks me-2"></i>Action</label>
+                <select name="action" class="form-select" required>
+                    <option value="issue">Issue Book</option>
+                    <option value="return">Return Book</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-check-circle me-2"></i>Submit
+            </button>
+        </form>
+    </div>
+</div>
+
+{% if message %}
+    <div class="alert alert-info mt-3 animate__animated animate__fadeIn">
+        <i class="fas fa-info-circle me-2"></i>{{ message }}
+    </div>
+{% endif %}
+{% endblock %}

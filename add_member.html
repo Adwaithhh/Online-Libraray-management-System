@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0"><i class="fas fa-user-plus me-2"></i>Add a New Member</h4>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-user me-2"></i>Member Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save me-2"></i>Add Member
+            </button>
+        </form>
+    </div>
+</div>
+
+{% if message %}
+    <div class="alert alert-success mt-3 animate__animated animate__fadeIn">
+        <i class="fas fa-check-circle me-2"></i>{{ message }}
+    </div>
+{% endif %}
+
+{% if members %}
+    <div class="card mt-4">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0"><i class="fas fa-users me-2"></i>Current Members</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in members %}
+                            <tr class="align-middle">
+                                <td>{{ member.id }}</td>
+                                <td>{{ member.name }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit me-1"></i>Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

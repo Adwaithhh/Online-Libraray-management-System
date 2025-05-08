@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Online Library</h1>
+    <div>
+        <a href="/" class="">Home</a>
+        <a href="/manage" class="active">Manage Books</a>
+        <a href="/loans">Loans</a>
+        <a href="/members">Members</a>
+        <a href="/contact">Contact</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Manage Books</h2>
+    <form method="POST" action="/add_book">
+        <input type="text" name="title" placeholder="Book Title" required>
+        <input type="text" name="author" placeholder="Author" required>
+        <input type="text" name="genre" placeholder="Genre" required>
+        <input type="number" name="year" placeholder="Published Year" required>
+        <input type="number" name="copies" placeholder="Copies Available" required>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <div class="book-list">
+        <h2>All Books</h2>
+        {% for book in books %}
+        <div class="book-item">
+            <div>
+                <span class="book-title">{{ book.title }}</span> 
+                by {{ book.author }} ({{ book.year }})
+            </div>
+            <div class="actions">
+                <form method="POST" action="/edit_book/{{ book.id }}" style="display:inline;">
+                    <button class="edit">Edit</button>
+                </form>
+                <form method="POST" action="/delete_book/{{ book.id }}" style="display:inline;">
+                    <button class="delete">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

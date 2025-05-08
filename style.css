@@ -1,0 +1,114 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("/static/library-bg.jpg"); /* Use the correct filename */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar h1 {
+    color: red;
+    font-weight: bold;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.navbar a.active, .navbar a:hover {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.container input, .container button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.container button {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.container button:hover {
+    background-color: darkred;
+}
+
+.book-list {
+    margin-top: 30px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.book-list h2 {
+    margin-bottom: 20px;
+}
+
+.book-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.book-item:last-child {
+    border-bottom: none;
+}
+
+.book-title {
+    font-weight: bold;
+}
+
+.actions button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.actions .edit {
+    background-color: orange;
+    color: white;
+}
+
+.actions .delete {
+    background-color: red;
+    color: white;
+}

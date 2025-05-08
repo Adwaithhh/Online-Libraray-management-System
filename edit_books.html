@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4 class="mb-3">Edit Book</h4>
+<form method="post">
+  <div class="mb-3">
+    <label>Title</label>
+    <input type="text" name="title" value="{{ book.title }}" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Author</label>
+    <input type="text" name="author" value="{{ book.author }}" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Genre</label>
+    <input type="text" name="genre" value="{{ book.genre }}" class="form-control" required>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" name="available" id="availableCheck" {% if book.available %}checked{% endif %}>
+    <label class="form-check-label" for="availableCheck">Available</label>
+  </div>
+  <button type="submit" class="btn btn-success">Update Book</button>
+</form>
+{% endblock %}
